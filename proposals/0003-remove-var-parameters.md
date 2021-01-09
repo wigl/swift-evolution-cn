@@ -48,7 +48,7 @@ print(x) // 2
 ```
 
 ## 动机
-使用`var`标记函数参数作用很有限，使一行代码最优化但是和`inout`造成歧义[^1]，为了强调值是唯一的copy以及相比`inout`不会回写，在这里，我们应该不允许使用`var`
+使用`var`标记函数参数作用很有限，使一行代码最优化但是和`inout`造成歧义[<sup>1</sup>](#refer-anchor-1)，为了强调值是唯一的copy以及相比`inout`不会回写，在这里，我们应该不允许使用`var`
 
 总的来说，促使修改的原因是：
 
@@ -57,7 +57,7 @@ print(x) // 2
 - `var` 造成值类型有引用类型的歧义。
 
 - 函数参数不像*if-*,
-*while-*, *guard-*, *for-in-*, 和 *case* 这些场景下的模式匹配（refutable patterns）[^2]。
+*while-*, *guard-*, *for-in-*, 和 *case* 这些场景下的模式匹配（refutable patterns）[<sup>2</sup>](#refer-anchor-2)。
 
 ## 方案
 
@@ -81,15 +81,18 @@ func foo(i: Int) {
 
 [Original SE-0003 Proposal](https://github.com/apple/swift-evolution/blob/8cd734260bc60d6d49dbfb48de5632e63bf200cc/proposals/0003-remove-var-parameters-patterns.md)
 
-从模式绑定中移除`var`被重新思考，因为Swift 2模式匹配已经使用了`var`，突变修改可能造成负担。你可以在 swift-evolution的邮件列表查看讨论[^3]：
+从模式绑定中移除`var`被重新思考，因为Swift 2模式匹配已经使用了`var`，突变修改可能造成负担。你可以在 swift-evolution的邮件列表查看讨论[<sup>3</sup>](#refer-anchor-3)：
 
 [Initial Discussion of Reconsideration](https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20160118/007326.html)
 
 最后的结论也发送到了swift-evolution列表，你可以在这里查看：
 [Note on Revision of the Proposal](https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20160125/008145.html)
 
-[^1]: 翻译的有问题。（Using var annotations on function parameters have limited utility, optimizing for a line of code at the cost of confusion with inout, which has the semantics most people expect. ）
+<div id="refer-anchor-1"></div>
+- [1]: 翻译的有问题。（Using var annotations on function parameters have limited utility, optimizing for a line of code at the cost of confusion with inout, which has the semantics most people expect. ）
 
-[^2]: Function parameters are not refutable patterns like in if-, while-, guard-, for-in-, and case statements. 没完全懂。
+<div id="refer-anchor-2"></div>
+- [2]: Function parameters are not refutable patterns like in if-, while-, guard-, for-in-, and case statements. 没完全懂。
 
-[^3]: 翻译不准确，模式匹配没有移除的原因？
+<div id="refer-anchor-3"></div>
+- [2]: 翻译不准确，模式匹配没有移除的原因？
