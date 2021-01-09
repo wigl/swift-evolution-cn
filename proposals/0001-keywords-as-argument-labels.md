@@ -11,7 +11,7 @@
 
 ## 动机
 
-对于一些函数，使用关键词作为参数名是最好的选择。比如从集合中找到某个值的索引，对于这个函数[^1]，最自然的命名就是`indexOf(_:in:)`
+对于一些函数，使用关键词作为参数名是最好的选择。比如从集合中找到某个值的索引，对于这个函数[<sup>1</sup>](#refer-anchor-1)，最自然的命名就是`indexOf(_:in:)`
 
     indexOf(value, in: collection)
 
@@ -29,7 +29,7 @@
 
 允许所有关键词（除了 `inout`, `var`, 和 `let`）可以作为函数参数。有三个地方的语法受到影响：
 
-* 表达式的调用，如上面的例子。这一块，我们没有语法上的歧义，因为表达式括号内的语法不会出现"<keyword> \`:\`"[^2]。到目前为止，这是最重要的一个例子。
+* 表达式的调用，如上面的例子。这一块，我们没有语法上的歧义，因为表达式括号内的语法不会出现"<keyword> \`:\`"[<sup>2</sup>](#refer-anchor-2)。到目前为止，这是最重要的一个例子。
 
 * Function/subscript/initializer 的声明：除了上述三个（`inout`, `var`, 和 `let`）关键词外，没有语法上的歧义，因为关键词（作为参数名）总会带有标识符‘:’ 或者 ‘\_’。如：
 
@@ -43,7 +43,7 @@ func touchesMatching(phase: NSTouchPhase, in view: NSView?) -> Set<NSTouch>
 func addParameter(name: String, `inout`: Bool)
 ```
 
-* 函数类型：这其实比#2更容易，因为参数名总是带有标识符‘:’：[^3]
+* 函数类型：这其实比#2更容易，因为参数名总是带有标识符‘:’：[<sup>3</sup>](#refer-anchor-3)
 
 ```swift
 (NSTouchPhase, in: NSView?) -> Set<NSTouch>
@@ -60,9 +60,11 @@ func addParameter(name: String, `inout`: Bool)
 
 第二个方案是，只针对`in`做处理。在Objective-C APIs映射到Swift时候，`in`是最常见的关键词参数，在一个简单的调研（Objective-C APIs的场景）中，`in`作为关键词参数的冲突占所有关键词的90%。另外，Swift语法中，`in`只有两个地方使用：循环和闭包，它和语法上下文严格相关。但是这个方案有点复杂（因为需要更多的分析的上下文关键字）并且不通用。
 
+<div id="refer-anchor-1"></div>
+[1]:这个函数在原文中，被描述为：module-scope function，不知道具体是什么意思。
 
-[^1]:这个函数在原文中，被描述为：module-scope function，不知道具体是什么意思。
+<div id="refer-anchor-2"></div>
+[2]:Here, we have no grammatic ambiguities, because " `:`" does not appear in any grammar production within a parenthesized expression list. 没有完全懂。
 
-[^2]:Here, we have no grammatic ambiguities, because " `:`" does not appear in any grammar production within a parenthesized expression list. 没有完全懂。
-
-[^3]:函数类型Swift后续还做过修改，现阶段（Swift 5），这里下面两个例子，都无法编译通过。
+<div id="refer-anchor-3"></div>
+[3]:函数类型Swift后续还做过修改，现阶段（Swift 5），这里下面两个例子，都无法编译通过。

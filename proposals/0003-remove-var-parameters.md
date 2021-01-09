@@ -89,10 +89,10 @@ func foo(i: Int) {
 [Note on Revision of the Proposal](https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20160125/008145.html)
 
 <div id="refer-anchor-1"></div>
-- [1]: 翻译的有问题。（Using var annotations on function parameters have limited utility, optimizing for a line of code at the cost of confusion with inout, which has the semantics most people expect. ）
+[1]: 翻译的有问题。（Using var annotations on function parameters have limited utility, optimizing for a line of code at the cost of confusion with inout, which has the semantics most people expect. ）
 
 <div id="refer-anchor-2"></div>
-- [2]: Function parameters are not refutable patterns like in if-, while-, guard-, for-in-, and case statements. 没完全懂。
+[2]: Function parameters are not refutable patterns like in if-, while-, guard-, for-in-, and case statements. 没完全懂。
 
 <div id="refer-anchor-3"></div>
-- [2]: 翻译不准确，模式匹配没有移除的原因？
+[3]: 翻译不准确，模式匹配没有移除的原因？
